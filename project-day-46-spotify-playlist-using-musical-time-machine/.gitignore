@@ -1,0 +1,14 @@
+key.py
+token.txt
+
+__pycache__
+*.py[cod]
+*$py.class
+
+# Environment
+.idea
+.env
+.venv
+env/
+venv/
+ENV/
