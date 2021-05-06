@@ -4,14 +4,12 @@ import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 from key import SPOTIFY_ID, SPOTIFY_SECRET
 
-URL = "https://www.billboard.com/charts/hot-100/"
 date = input("Which year do you want to travel to? Type the date in this format YYYY-MM-DD: \n")
-
-response = requests.get(URL + date)
+response = requests.get("https://www.billboard.com/charts/hot-100/" + date)
 soup = BeautifulSoup(response.text, "html.parser")
+song_names = [song.getText() for song in soup.find_all(class_="chart-element__information__song")]
 
 # ranks = [rank.getText() for rank in soup.find_all(class_="chart-element__rank__number")]
-song_names = [song.getText() for song in soup.find_all(class_="chart-element__information__song")]
 # artists = [artist.getText() for artist in soup.find_all(class_="chart-element__information__artist")]
 
 # Spotify Authentication
