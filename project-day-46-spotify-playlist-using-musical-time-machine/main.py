@@ -39,7 +39,11 @@ for song in song_names:
         print(f"{song} doesn't exist in Spotify. Skipped.")
 
 # Create a new private playlist in Spotify
-playlist = sp.user_playlist_create(user=user_id, name=f"{date} Billboard 100", public=False)
+playlist = sp.user_playlist_create(
+    user=user_id,
+    name=f"{date} Billboard 100",
+    public=False
+)
 print(playlist)
 
 # Add songs found into the new playlist
