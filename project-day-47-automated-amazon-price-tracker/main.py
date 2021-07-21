@@ -4,7 +4,8 @@ import lxml
 import smtplib
 from key import EMAIL, PASSWORD, RECIPIENT
 
-url = "https://www.amazon.com/Instant-Pot-Electric-Pressure-Stainless/dp/B081Z9FKDB/ref=dp_fod_1?pd_rd_i=B081Z9FKDB&psc=1"
+# url = "https://www.amazon.com/Instant-Pot-Electric-Pressure-Stainless/dp/B081Z9FKDB/ref=dp_fod_1?pd_rd_i=B081Z9FKDB&psc=1"
+url = "https://www.amazon.com/dp/B091TTDRVP/"
 header = {
     "Accept-Language": "vi,en-US;q=0.9,en;q=0.8",
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36"
