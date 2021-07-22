@@ -1,0 +1,5 @@
+Flask==1.0.2
+flask
+email-validator
+WTForms~=2.3.3
+Flask-Bootstrap
