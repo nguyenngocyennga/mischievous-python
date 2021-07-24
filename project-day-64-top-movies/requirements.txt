@@ -1,0 +1,8 @@
+flask
+flask_bootstrap
+flask_sqlalchemy
+SQLAlchemy
+flask_wtf
+wtforms
+requests
+typing
