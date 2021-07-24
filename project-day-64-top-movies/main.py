@@ -7,6 +7,7 @@ from wtforms.validators import DataRequired
 import requests
 from typing import Callable
 
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///top-movies.db"
@@ -35,6 +36,12 @@ class Movie(db.Model):
     img_url = db.Column(db.String)
 
 
+class RateMovieForm(FlaskForm):
+    rating = StringField('Your Rating Out of 10 e.g. 7.5', validators=[DataRequired()])
+    review = StringField('Your Review')
+    submit = SubmitField('Done')
+
+
 # CREATE SEED MOVIE FOR DATABASE:
 # # db.drop_all()
 # db.create_all()
@@ -56,6 +63,20 @@ class Movie(db.Model):
 def home():
     all_movies = db.session.query(Movie).all()
     return render_template("index.html", movies=all_movies)
+
+
+@app.route("/edit", methods=["POST", "GET"])
+def edit():
+    form = RateMovieForm()
+    movie_id = request.args.get('id')
+    movie_to_edit = Movie.query.get(movie_id)
+    if form.validate_on_submit():
+        # UPDATE RECORD:
+        movie_to_edit.rating = float(form.rating.data)
+        movie_to_edit.review = form.review.data
+        db.session.commit()
+        return redirect(url_for('home'))
+    return render_template('edit.html', movie=movie_to_edit, form=form)
 
 
 if __name__ == '__main__':
