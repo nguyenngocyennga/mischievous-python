@@ -42,8 +42,8 @@ class RateMovieForm(FlaskForm):
     submit = SubmitField('Done')
 
 
-# CREATE SEED MOVIE FOR DATABASE:
-# # db.drop_all()
+# # CREATE SEED MOVIE FOR DATABASE:
+# db.drop_all()
 # db.create_all()
 #
 # new_movie = Movie(
@@ -77,6 +77,15 @@ def edit():
         db.session.commit()
         return redirect(url_for('home'))
     return render_template('edit.html', movie=movie_to_edit, form=form)
+
+
+@app.route('/delete')
+def delete():
+    movie_id = request.args.get('id')
+    movie_to_delete = Movie.query.get(movie_id)
+    db.session.delete(movie_to_delete)
+    db.session.commit()
+    return redirect(url_for('home'))
 
 
 if __name__ == '__main__':
