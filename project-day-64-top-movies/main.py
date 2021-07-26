@@ -6,6 +6,7 @@ from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 import requests
 from typing import Callable
+from acc_info import movie_api_key
 
 
 app = Flask(__name__)
@@ -42,6 +43,11 @@ class RateMovieForm(FlaskForm):
     submit = SubmitField('Done')
 
 
+class FindMovieForm(FlaskForm):
+    title = StringField('Movie Title', validators=[DataRequired()])
+    submit = SubmitField('Submit')
+
+
 # # CREATE SEED MOVIE FOR DATABASE:
 # db.drop_all()
 # db.create_all()
@@ -61,8 +67,40 @@ class RateMovieForm(FlaskForm):
 
 @app.route("/")
 def home():
-    all_movies = db.session.query(Movie).all()
+    # all_movies = db.session.query(Movie).all()
+    all_movies = Movie.query.order_by(Movie.rating).all()
+    for i in range(len(all_movies)):
+        all_movies[i].ranking = len(all_movies) - i
+    db.session.commit()
     return render_template("index.html", movies=all_movies)
+
+
+@app.route('/add', methods=["POST", "GET"])
+def add():
+    form = FindMovieForm()
+    if form.validate_on_submit():
+        movie_title = form.title.data
+        response = requests.get(f'https://api.themoviedb.org/3/search/movie?query={movie_title}&api_key={movie_api_key}')
+        data = response.json()['results']
+        return render_template('select.html', search_results=data)
+    return render_template('add.html', form=form)
+
+
+@app.route('/find_movie')
+def find_movie():
+    movie_id = request.args.get('id')
+    response = requests.get(f'https://api.themoviedb.org/3/movie/{movie_id}',
+                            params={"api_key": movie_api_key})
+    movie = response.json()
+    new_movie = Movie(
+        title=movie['title'],
+        year=movie['release_date'].split("-")[0],
+        description=movie['overview'],
+        img_url=f"https://image.tmdb.org/t/p/w500{movie['poster_path']}"
+    )
+    db.session.add(new_movie)
+    db.session.commit()
+    return redirect(url_for('edit', id=new_movie.id))  # 'id' should be from your database, not from the api
 
 
 @app.route("/edit", methods=["POST", "GET"])
