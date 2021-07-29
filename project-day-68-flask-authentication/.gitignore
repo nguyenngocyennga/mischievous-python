@@ -1,0 +1,13 @@
+acc_secrets.py
+
+__pycache__
+*.py[cod]
+*$py.class
+
+# Environment
+.idea
+.env
+.venv
+env/
+venv/
+ENV/
