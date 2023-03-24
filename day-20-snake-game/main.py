@@ -1,3 +1,5 @@
+# Snake Game: Animation & Coordinates
+
 import time
 from turtle import Screen
 from food import Food
