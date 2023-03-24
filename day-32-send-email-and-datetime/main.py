@@ -1,3 +1,5 @@
+# Send Email (smtplib) and Manage Dates (datetime)
+
 from password import my_email, my_password, recipient
 import smtplib
 import datetime as dt  # shorten datetime module
