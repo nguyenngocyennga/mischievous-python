@@ -1,9 +1,8 @@
 # https://www.codewars.com/users/nganguyen.ny/completed
 
 ___
-
 ### [Tic-Tac-Toe-like table Generator](https://www.codewars.com/kata/5b817c2a0ce070ace8002be0)
-**Challenge:**
+**Description:**
 Assuming that you get all the data in one array, you put a space around each value, | as a columns separator and multiple - as rows separator, with something like ["O", "X", " ", " ", "X", " ", "X", "O", " "] you should be returning this structure (inclusive of new lines):
 
 ```
@@ -63,6 +62,26 @@ def create_phone_number(n):
     return "({}{}{}) {}{}{}-{}{}{}{}".format(*n)
 ```
 
+___
+### [Sudoku Solution Validator](https://www.codewars.com/kata/63d1bac72de941033dbf87ae)
+**Description:**
+Write a function that accepts a Sudoku board, and returns true if it is a valid Sudoku solution, or false otherwise. The cells of the input Sudoku board may also contain 0's, which will represent empty cells. Boards containing one or more zeroes are considered to be invalid solutions.
+
+**My solution:**
+```python
+def valid_solution(grid):
+    colums = list(map(list, zip(*grid)))
+    cubic_list = []
+    num = list(range(1,10))
+    for col in range(0, len(grid), 3):
+        for row in range(0, len(grid), 3):
+            cubic = [grid[i][col:col+3] for i in range(row, row+3)]
+            cubic_list.append(cubic[0] + cubic[1] + cubic[2])
+    for i in range(9):
+        if sorted(grid[i]) != num or sorted(colums[i]) != num or sorted(cubic_list[i]) != num:
+            return False
+    return True
+```
 ___
 ### [Stop gninnipS My sdroW!](https://www.codewars.com/kata/5264d2b162488dc400000001)
 **Description:**
