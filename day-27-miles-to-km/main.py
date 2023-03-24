@@ -1,3 +1,5 @@
+# tkinter, *args, **kwargs, GUI Programs
+
 from tkinter import *
 
 window = Tk()
