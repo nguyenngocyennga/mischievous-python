@@ -1,3 +1,5 @@
+# Keys, Authentication, Environment Variables: Send SMS
+
 import os
 from key import api_key, twilio_phone_number, recipient_number, twilio_account_sid, twilio_auth_token
 import requests
