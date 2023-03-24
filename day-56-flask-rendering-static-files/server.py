@@ -1,3 +1,5 @@
+# Rendering HTML/Static files and Using Website Templates
+
 from flask import Flask
 from flask import render_template
 
