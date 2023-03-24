@@ -1,3 +1,5 @@
+# Send Email (smtplib) and Manage Dates (datetime)
+
 from account_info import my_email, my_password
 from datetime import datetime
 import smtplib
