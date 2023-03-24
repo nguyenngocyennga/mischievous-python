@@ -1,4 +1,6 @@
-/Users/nganguyen/PycharmProjects/100-days-of-python/day-26-list-and-dictionary-comprehension/venv/bin/python "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevconsole.py" --mode=client --port=52344
+# List Comprehension
+
+# /Users/nganguyen/PycharmProjects/100-days-of-python/day-26-list-and-dictionary-comprehension/venv/bin/python "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevconsole.py" --mode=client --port=52344
 import sys; print('Python %s on %s' % (sys.version, sys.platform))
 sys.path.extend(['/Users/nganguyen/PycharmProjects/100-days-of-python/day-26-list-and-dictionary-comprehension'])
 PyDev console: starting.
