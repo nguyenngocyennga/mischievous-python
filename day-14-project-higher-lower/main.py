@@ -1,3 +1,5 @@
+# Higher Lower Game Project
+
 # ------------------------ PSEUDO-CODE ------------------------
 # [v] import art.py and game_data, import random
 # [v] print the game logo
