@@ -1,3 +1,5 @@
+# Stock Trading News Alert Project
+
 from key import ALPHA_VANTAGE_API_KEY, NEWS_API_KEY
 from key import TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_PHONE_NUMBER, RECIPIENT_NUMBER
 import requests
