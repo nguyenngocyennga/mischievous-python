@@ -1,4 +1,4 @@
-# Snake Game: Animation & Coordinates
+# Snake Game: Inheritance & List Slicing
 
 import time
 from turtle import Screen
