@@ -1,4 +1,4 @@
-# https://www.codewars.com/users/nguyenngocyennga/completed
+# https://www.codewars.com/users/nganguyen.ny/completed
 
 ___
 ### [Tic-Tac-Toe-like table Generator](https://www.codewars.com/kata/5b817c2a0ce070ace8002be0)
