@@ -1,3 +1,5 @@
+# Templating with Jinja in Flask Applications
+
 from flask import Flask, render_template
 import random
 import requests
