@@ -3,6 +3,7 @@ import requests
 from account_info import my_email, my_password, recipient
 import smtplib
 
+
 app = Flask(__name__)
 response = requests.get("https://api.npoint.io/e42b353ee387383898c7")
 ALL_POSTS = response.json()
