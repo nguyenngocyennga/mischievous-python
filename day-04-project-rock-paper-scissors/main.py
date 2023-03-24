@@ -1,3 +1,5 @@
+# Randomisation and Python Lists
+
 import random 
 
 rock = '''
