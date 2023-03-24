@@ -1,3 +1,5 @@
+# Tkinter, Dynamic Typing and Pomodoro GUI App
+
 from tkinter import *
 import time
 import math
