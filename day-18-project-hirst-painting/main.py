@@ -1,3 +1,5 @@
+# Graphical User Interface (GUI)
+
 import random
 import colorgram
 from turtle import Turtle
