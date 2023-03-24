@@ -1,4 +1,4 @@
-#Number Guessing Game Objectives:
+# Scope and Number Guessing Game
 
 # Include an ASCII art logo.
 # Allow the player to submit a guess for a number between 1 and 100.
